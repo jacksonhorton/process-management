@@ -63,10 +63,11 @@ int Manager::change_state(int pid, process_state new_state) {
 
 string Manager::stateToString(process_state s) {
   switch (s) {
-  case process_state::ready:      return "Ready";
-  case process_state::running:    return "Running";
-  case process_state::blocked:    return "Blocked";
-  default:                        return "Error";
+  case process_state::ready:         return "Ready";
+  case process_state::running:       return "Running";
+  case process_state::blocked:       return "Blocked";
+  case process_state::terminated:    return "Terminated";
+  default:                           return "Error";
   }
 }
 
@@ -84,3 +85,17 @@ process_state Manager::stringToState(string s) {
   exit(1);
 }
 
+int Manager::terminate(int pid) {
+  try {
+    map<int,process>::mapped_type p = this->processes.at(pid);
+  }
+  catch (const std::out_of_range& e) {
+    cout << "No process found with PID " << pid << "." << endl;
+    return 0;
+  }
+  
+  cout << "Terminating process " << pid << "..." << endl;
+  this->processes.erase(pid);
+  
+  return 1;
+}
