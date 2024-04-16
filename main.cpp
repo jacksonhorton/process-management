@@ -1,13 +1,19 @@
+/**
+ * @file main.cpp
+ * @author Jackson Horton
+ * @date 2024-04-15
+ * @brief Creates a Manager object and lets the user interact with it.
+ * 
+ * The main function lets the user manage a Manager object using a CLI. The user can create processes, schedule processes, and terminate processes.
+ */
+
 #include <iostream>
 #include <limits>
 #include "Manager.h"
 
 using namespace std;
-int main() {
 
-  Manager myManager;
-  myManager.add_process(1, 0, 10);
-
+void loop(Manager myManager) {
   string cmd = "";
   while (cmd != "4") {
     myManager.get_processes();
@@ -52,13 +58,22 @@ int main() {
 
       myManager.terminate(pid);
     }
+    else if (cmd == "4") {
+      exit(0);
+    }
     
     cout << "\n\n\n\n";
     // clear cin to get rid of any newlines
     cin.ignore(numeric_limits<streamsize>::max(), '\n');
   }
-  
-  myManager.simulate();
+}
+
+int main() {
+
+  Manager myManager;
+  myManager.add_process(1, 0, 10);
+
+  loop(myManager);
 
   return 0;
 }

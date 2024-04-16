@@ -32,12 +32,19 @@ void Manager::get_processes() {
   cout << "Processes:" << endl;
 
   for (const auto& pair : this->processes) {
-    //cout << key << ": " << Manager::stateToString(value.state) << endl;
     cout << "\t" << pair.first << ": " << stateToString(pair.second.state)
 	 << ", starts @ time " << pair.second.ptime_start << ", "
-	 << pair.second.cpu_time_remaining << " remaining." << endl;
+	 << pair.second.cpu_time_remaining << " remaining, priority "
+	 << pair.second.priority << "." << endl;
   }
 
+}
+
+
+process* Manager::get_process(int pid) {
+  map<int, process>::iterator pair = this->processes.find(pid);
+
+  return &(pair->second);
 }
 
 

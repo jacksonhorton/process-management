@@ -1,7 +1,8 @@
+#pragma once
 #include <string>
 #include <map>
 
-enum class process_state { ready=0, running=1, blocked=2, terminated=3 };
+enum class process_state { ready, running, blocked, terminated };
 
 struct process {
   int priority;
@@ -32,6 +33,7 @@ public:
   int terminate(int pid);
   void get_processes();
   int change_state(int pid, process_state new_state);
+  process* get_process(int pid);
   static std::string stateToString(process_state s);
   static process_state stringToState(std::string s);
 };
