@@ -1,0 +1,8 @@
+#include "Scheduler.h"
+
+using namespace std;
+
+Scheduler::Scheduler(Manager manager) {
+  this->manager = manager;
+  this->manager.get_processes();
+};

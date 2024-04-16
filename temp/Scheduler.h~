@@ -1,0 +1,10 @@
+#pragma once
+#include "Manager.h"
+
+
+class Scheduler {
+ private:
+  Manager manager;
+ public:
+  Scheduler(Manager manager);
+}
