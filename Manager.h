@@ -5,6 +5,7 @@
 enum class process_state { ready, running, blocked, terminated };
 
 struct process {
+  int pid;
   int priority;
   int ptime_start;
   int cpu_time_remaining;
@@ -31,6 +32,7 @@ public:
   int add_process(int priority, int start_time, int time_required);
   int terminate(int pid);
   void get_processes();
+  void get_processes(int cpu_time); // show only processes that have arrived
   int change_state(int pid, process_state new_state);
   process* get_process(int pid);
   int num_processes();

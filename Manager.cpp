@@ -15,20 +15,31 @@ int Manager::add_process(int priority, int start_time, int time_required) {
     return -1;
   }
   
-  process p = { priority,
+  process p = { this->pcounter,
+		priority,
 		start_time,
 		time_required,
 		process_state::ready };
 
-  this->processes.insert({ this->pcounter, p });
-  return this->pcounter++;
+  this->processes.insert({ p.pid, p });
+
+  this->pcounter++;
+  return p.pid;
 }
 
 
 void Manager::get_processes() {
+  this->get_processes(0);
+}
+
+void Manager::get_processes(int cpu_time) {
   cout << "Processes:" << endl;
 
   for (const auto& pair : this->processes) {
+    if (pair.second.ptime_start > cpu_time) {
+      continue;
+    }
+    
     cout << "\t" << pair.first << ": " << stateToString(pair.second.state)
 	 << ", starts @ time " << pair.second.ptime_start << ", "
 	 << pair.second.cpu_time_remaining << " remaining, priority "
@@ -36,6 +47,10 @@ void Manager::get_processes() {
   }
 
 }
+
+
+
+
 
 
 process* Manager::get_process(int pid) {
