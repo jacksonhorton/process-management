@@ -17,27 +17,24 @@ enum class algorithm {fcfs, sjf, rr, priority};
 
 class Scheduler {
  private:
-  void (*sort) (Scheduler);
-  
- public:
-  Scheduler(algorithm);
-  Manager get_manager();
-  void add_process(int pstart_time, int cpu_time_needed, int process_priority);
-  void start();
-  void run_process(int pid, int cpu_time);
-
+  algorithm alg;
   Manager manager;
   process* running = nullptr;
+
+  void fcfs_loop();
+  void sjf_loop();
+  
   std::vector<int> add_order;
   int cpu_time;
   int quantum;
-
-};
-
-
-// Base class for algorithms
-class ScheduleAlgorithm {
-public:
-  virtual void loop(Scheduler *scheduler);
+  
+  
+ public:
+  Scheduler();
+  Scheduler(algorithm a);
+  Manager get_manager();
+  void add_process(int pstart_time, int cpu_time_needed, int process_priority);
+  void start();
+  void run_process(process* p, int cpu_time);
 };
 

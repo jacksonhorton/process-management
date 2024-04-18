@@ -9,6 +9,7 @@ struct process {
   int priority;
   int ptime_start;
   int cpu_time_remaining;
+  int cpu_total_time;
   process_state state;
 };
 

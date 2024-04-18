@@ -5,7 +5,7 @@ CC = g++
 
 ## Compiler Flag variable
 # Compile with debugging features and all errors + warnings.
-CFLAGS = -g -Wall -Wextra
+CFLAGS = -g -Wall -Wextra -std=c++11
 
 ## Target Flag variable
 # Contains all targets to fully compile.

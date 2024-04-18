@@ -19,6 +19,7 @@ int Manager::add_process(int priority, int start_time, int time_required) {
 		priority,
 		start_time,
 		time_required,
+		time_required,
 		process_state::ready };
 
   this->processes.insert({ p.pid, p });
