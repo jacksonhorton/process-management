@@ -16,16 +16,22 @@ using namespace std;
 
 int main() {
 
-  Scheduler scheduler(algorithm::fcfs);
+  //  Scheduler scheduler(algorithm::priority);
+  //Scheduler scheduler(2);
+  Scheduler scheduler(2);
   /*
    * TEST
    *
    */
-  scheduler.add_process(0,4,1);
-  scheduler.add_process(1,3,1);
-  scheduler.add_process(2,1,1);
-  scheduler.add_process(3,2,1);
-  scheduler.add_process(4,5,1);
+  /*scheduler.add_process(0,4,3);
+  scheduler.add_process(1,3,2);
+  scheduler.add_process(2,1,2);
+  scheduler.add_process(3,2,4);
+  scheduler.add_process(4,5,5);*/
+  scheduler.add_process(0,5,1);
+  scheduler.add_process(1,4,1);
+  scheduler.add_process(2,2,1);
+  scheduler.add_process(4,1,1);
   
   
   //scheduler.add_process(0, 4, 3);
