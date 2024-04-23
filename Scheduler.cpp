@@ -2,7 +2,7 @@
 #include <iostream>
 #include <numeric>
 #include <algorithm>
-#include <queue>
+#include <vector>
 
 using namespace std;
 
@@ -36,10 +36,6 @@ void Scheduler::fcfs_loop() {
     // run the process
     this->run_process(this->running, 1);
       
-      
-    // prepare for next cycle
-    this->manager.get_processes(this->cpu_time);
-    this->cpu_time += 1;
   }
 }
 
@@ -72,11 +68,6 @@ void Scheduler::sjf_loop() {
     
     // run the process
     this->run_process(this->running, 1);
-    
-      
-    // prepare for next cycle
-    this->manager.get_processes(this->cpu_time);
-    this->cpu_time += 1;
   }
 }
 
@@ -107,48 +98,90 @@ void Scheduler::priority_loop() {
     // run the process
     this->run_process(this->running, 1);
     
-      
-    // prepare for next cycle
-    this->manager.get_processes(this->cpu_time);
-    this->cpu_time += 1;
-    
   }
 }
 
 
 void Scheduler::rr_loop() {
-  queue<int> ready_queue = {};
+  vector<int> ready_queue = {};
   while (this->manager.num_processes() > 0) {
-    
-    // get the process we should run scheduler cycle
+
+    // error check before setting this->running
+    if (this->running != nullptr && ready_queue[0] != this->running->pid) {
+      ready_queue.erase(ready_queue.begin());
+      this->running = nullptr;
+      continue;
+    }
+
+    // check for any new arrivals
+    bool waiting = false;
     for (unsigned long i = 0; i < this->add_order.size(); i++) {
       process* p = this->manager.get_process(this->add_order[i]);
-	
+      if (p == nullptr) {
+	cout << "NULLPTR!!!!" << endl;
+	exit(1);
+      }
+
+      if (this->running != nullptr && p->pid == this->running->pid) {
+	//if the pid is the process that just ran, ignore as it is handled after the for loop
+	continue;
+      }
+      
       if (p->ptime_start > this->cpu_time) {
-	// if process hasn't arrived yet
+	// process hasn't arrived yet
+	waiting = true;
 	continue;
       }
 
-      
-      // run the process
-      cout << "\nTime: " << this->cpu_time << endl;
-      this->running = p;
-      int runtime = this->quantum;
-      if (this->running->cpu_time_remaining - this->quantum < 0) {
-	runtime = this->running->cpu_time_remaining;
+      if (this->isIn(ready_queue, p->pid)) {
+	//process already in queue
+	continue;
       }
-      
-      this->run_process(this->running, runtime);
 
-      
-      // prepare for next cycle
-      this->manager.get_processes(this->cpu_time);
-      this->cpu_time += runtime;
+      // add to end of queue
+      cout << "capacity is " << ready_queue.capacity() << endl;
+      ready_queue.push_back(p->pid);
     }
-      
+
+    // end if no more elements in queue
+    if (ready_queue.size() == 0 && !waiting) {
+      return;
+    }
+
+
+    // move previous running to end of queue if not terminated
+    if (this->running != nullptr) {
+      int prev_pid = this->running->pid;
+      auto prev_it = find(ready_queue.begin(), ready_queue.end(), prev_pid);
+      ready_queue.erase(prev_it);
+      if (this->manager.get_process(prev_pid)->cpu_time_remaining > 0) {
+	ready_queue.push_back(prev_pid);
+      }
+      else {
+	cout << prev_pid << " is done" << endl;
+      }
+    }
+
     
 
+    // select next running
+    this->running = this->manager.get_process(ready_queue[0]);
+    cout << "Running is " << this->running->pid << endl;
+
+    // run the next process
+    this->run_process(this->running, this->quantum);
+   
+    
   }
+}
+
+
+bool Scheduler::isIn(vector<int> v, int a) {
+  auto it = find(v.begin(), v.end(), a);
+  if (it == v.end()) {
+    return false;
+  }
+  return true;
 }
 
 
@@ -218,7 +251,7 @@ void Scheduler::start() {
   cout << "\nTotal Time: " << m.total_time << endl;
   cout << "Average turnaround: " << m.avg_turnaround << endl;
   cout << "Average wait: " << m.avg_wait << endl;
-  
+
 };
 
 void Scheduler::run_process(process* p, int cpu_time) {
@@ -229,13 +262,18 @@ void Scheduler::run_process(process* p, int cpu_time) {
     cout << "No process to run scheduler cycle" << endl;
     return;
   }
-  
-  p->cpu_time_remaining -= cpu_time; //if cpu_time/quantum isn't 1, may need to subtract time remaing from cpu_time to not take up the whole quantum, idk tho
+
+  // calculate the time the process runs for (should be quantum unless it runs below 0)
+  int runtime = cpu_time;
+  if (p->cpu_time_remaining - cpu_time < 0) {
+    runtime = p->cpu_time_remaining;
+  }
+  p->cpu_time_remaining -= runtime;
   
   // check if process is ready to terminate
   if (p->cpu_time_remaining <= 0) {
     // track metrics
-    double turnaround = (this->cpu_time + cpu_time) - p->ptime_start;
+    double turnaround = (this->cpu_time + runtime) - p->ptime_start;
     double wait = turnaround - p->cpu_total_time;
     this->wait_times.push_back(wait);
     this->turnaround_times.push_back(turnaround);
@@ -243,10 +281,16 @@ void Scheduler::run_process(process* p, int cpu_time) {
     this->manager.terminate(p->pid);
 
     //management stuff
-    this->running = nullptr; // reset the running process
+    if (this->alg != algorithm::rr) {
+      this->running = nullptr; // reset the running process
+    }
     
     auto pid_it = find(this->add_order.begin(), this->add_order.end(), p->pid); // remove pid from add_order
     this->add_order.erase(pid_it);
   }
+
+  // prepare for next cycle
+  this->manager.get_processes(this->cpu_time);
+  this->cpu_time += runtime;
 
 };

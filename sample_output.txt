@@ -1,0 +1,477 @@
+NOW RUNNING PRIORITY SCHEDULING
+Created Manager at 0.
+Processes:
+	0: Ready, starts @ time 0, 5 remaining, priority 1.
+Running with priority algorithm.
+
+Time: 0
+Running PID 0 for 1 time
+Processes:
+	0: Ready, starts @ time 0, 4 remaining, priority 1.
+
+Time: 1
+Running PID 0 for 1 time
+Processes:
+	0: Ready, starts @ time 0, 3 remaining, priority 1.
+	1: Ready, starts @ time 1, 4 remaining, priority 1.
+
+Time: 2
+Running PID 0 for 1 time
+Processes:
+	0: Ready, starts @ time 0, 2 remaining, priority 1.
+	1: Ready, starts @ time 1, 4 remaining, priority 1.
+	2: Ready, starts @ time 2, 2 remaining, priority 1.
+
+Time: 3
+Running PID 0 for 1 time
+Processes:
+	0: Ready, starts @ time 0, 1 remaining, priority 1.
+	1: Ready, starts @ time 1, 4 remaining, priority 1.
+	2: Ready, starts @ time 2, 2 remaining, priority 1.
+
+Time: 4
+Running PID 0 for 1 time
+Terminating process 0...
+Processes:
+	1: Ready, starts @ time 1, 4 remaining, priority 1.
+	2: Ready, starts @ time 2, 2 remaining, priority 1.
+	3: Ready, starts @ time 4, 1 remaining, priority 1.
+
+Time: 5
+Running PID 1 for 1 time
+Processes:
+	1: Ready, starts @ time 1, 3 remaining, priority 1.
+	2: Ready, starts @ time 2, 2 remaining, priority 1.
+	3: Ready, starts @ time 4, 1 remaining, priority 1.
+
+Time: 6
+Running PID 1 for 1 time
+Processes:
+	1: Ready, starts @ time 1, 2 remaining, priority 1.
+	2: Ready, starts @ time 2, 2 remaining, priority 1.
+	3: Ready, starts @ time 4, 1 remaining, priority 1.
+	4: Ready, starts @ time 6, 5 remaining, priority 1.
+
+Time: 7
+Running PID 1 for 1 time
+Processes:
+	1: Ready, starts @ time 1, 1 remaining, priority 1.
+	2: Ready, starts @ time 2, 2 remaining, priority 1.
+	3: Ready, starts @ time 4, 1 remaining, priority 1.
+	4: Ready, starts @ time 6, 5 remaining, priority 1.
+
+Time: 8
+Running PID 1 for 1 time
+Terminating process 1...
+Processes:
+	2: Ready, starts @ time 2, 2 remaining, priority 1.
+	3: Ready, starts @ time 4, 1 remaining, priority 1.
+	4: Ready, starts @ time 6, 5 remaining, priority 1.
+
+Time: 9
+Running PID 2 for 1 time
+Processes:
+	2: Ready, starts @ time 2, 1 remaining, priority 1.
+	3: Ready, starts @ time 4, 1 remaining, priority 1.
+	4: Ready, starts @ time 6, 5 remaining, priority 1.
+
+Time: 10
+Running PID 2 for 1 time
+Terminating process 2...
+Processes:
+	3: Ready, starts @ time 4, 1 remaining, priority 1.
+	4: Ready, starts @ time 6, 5 remaining, priority 1.
+
+Time: 11
+Running PID 3 for 1 time
+Terminating process 3...
+Processes:
+	4: Ready, starts @ time 6, 5 remaining, priority 1.
+
+Time: 12
+Running PID 4 for 1 time
+Processes:
+	4: Ready, starts @ time 6, 4 remaining, priority 1.
+
+Time: 13
+Running PID 4 for 1 time
+Processes:
+	4: Ready, starts @ time 6, 3 remaining, priority 1.
+
+Time: 14
+Running PID 4 for 1 time
+Processes:
+	4: Ready, starts @ time 6, 2 remaining, priority 1.
+
+Time: 15
+Running PID 4 for 1 time
+Processes:
+	4: Ready, starts @ time 6, 1 remaining, priority 1.
+
+Time: 16
+Running PID 4 for 1 time
+Terminating process 4...
+Processes:
+
+Total Time: 17
+Average turnaround: 8.2
+Average wait: 4.8
+
+
+
+
+
+NOW RUNNING SHORTEST JOB FIRST
+Created Manager at 0.
+Processes:
+	0: Ready, starts @ time 0, 5 remaining, priority 1.
+Running with shortest-job first algorithm.
+
+Time: 0
+Running PID 0 for 1 time
+Processes:
+	0: Ready, starts @ time 0, 4 remaining, priority 1.
+
+Time: 1
+Running PID 0 for 1 time
+Processes:
+	0: Ready, starts @ time 0, 3 remaining, priority 1.
+	1: Ready, starts @ time 1, 4 remaining, priority 1.
+
+Time: 2
+Running PID 0 for 1 time
+Processes:
+	0: Ready, starts @ time 0, 2 remaining, priority 1.
+	1: Ready, starts @ time 1, 4 remaining, priority 1.
+	2: Ready, starts @ time 2, 2 remaining, priority 1.
+
+Time: 3
+Running PID 0 for 1 time
+Processes:
+	0: Ready, starts @ time 0, 1 remaining, priority 1.
+	1: Ready, starts @ time 1, 4 remaining, priority 1.
+	2: Ready, starts @ time 2, 2 remaining, priority 1.
+
+Time: 4
+Running PID 0 for 1 time
+Terminating process 0...
+Processes:
+	1: Ready, starts @ time 1, 4 remaining, priority 1.
+	2: Ready, starts @ time 2, 2 remaining, priority 1.
+	3: Ready, starts @ time 4, 1 remaining, priority 1.
+
+Time: 5
+Running PID 3 for 1 time
+Terminating process 3...
+Processes:
+	1: Ready, starts @ time 1, 4 remaining, priority 1.
+	2: Ready, starts @ time 2, 2 remaining, priority 1.
+
+Time: 6
+Running PID 2 for 1 time
+Processes:
+	1: Ready, starts @ time 1, 4 remaining, priority 1.
+	2: Ready, starts @ time 2, 1 remaining, priority 1.
+	4: Ready, starts @ time 6, 5 remaining, priority 1.
+
+Time: 7
+Running PID 2 for 1 time
+Terminating process 2...
+Processes:
+	1: Ready, starts @ time 1, 4 remaining, priority 1.
+	4: Ready, starts @ time 6, 5 remaining, priority 1.
+
+Time: 8
+Running PID 1 for 1 time
+Processes:
+	1: Ready, starts @ time 1, 3 remaining, priority 1.
+	4: Ready, starts @ time 6, 5 remaining, priority 1.
+
+Time: 9
+Running PID 1 for 1 time
+Processes:
+	1: Ready, starts @ time 1, 2 remaining, priority 1.
+	4: Ready, starts @ time 6, 5 remaining, priority 1.
+
+Time: 10
+Running PID 1 for 1 time
+Processes:
+	1: Ready, starts @ time 1, 1 remaining, priority 1.
+	4: Ready, starts @ time 6, 5 remaining, priority 1.
+
+Time: 11
+Running PID 1 for 1 time
+Terminating process 1...
+Processes:
+	4: Ready, starts @ time 6, 5 remaining, priority 1.
+
+Time: 12
+Running PID 4 for 1 time
+Processes:
+	4: Ready, starts @ time 6, 4 remaining, priority 1.
+
+Time: 13
+Running PID 4 for 1 time
+Processes:
+	4: Ready, starts @ time 6, 3 remaining, priority 1.
+
+Time: 14
+Running PID 4 for 1 time
+Processes:
+	4: Ready, starts @ time 6, 2 remaining, priority 1.
+
+Time: 15
+Running PID 4 for 1 time
+Processes:
+	4: Ready, starts @ time 6, 1 remaining, priority 1.
+
+Time: 16
+Running PID 4 for 1 time
+Terminating process 4...
+Processes:
+
+Total Time: 17
+Average turnaround: 7
+Average wait: 3.6
+
+
+
+
+
+NOW RUNNING ROUND ROBIN
+Created Manager at 0.
+Processes:
+	0: Ready, starts @ time 0, 5 remaining, priority 1.
+Running with round-robin algorithm.
+capacity is 0
+Running is 0
+Running PID 0 for 1 time
+Processes:
+	0: Ready, starts @ time 0, 4 remaining, priority 1.
+capacity is 1
+Running is 1
+Running PID 1 for 1 time
+Processes:
+	0: Ready, starts @ time 0, 4 remaining, priority 1.
+	1: Ready, starts @ time 1, 3 remaining, priority 1.
+capacity is 2
+Running is 0
+Running PID 0 for 1 time
+Processes:
+	0: Ready, starts @ time 0, 3 remaining, priority 1.
+	1: Ready, starts @ time 1, 3 remaining, priority 1.
+	2: Ready, starts @ time 2, 2 remaining, priority 1.
+Running is 2
+Running PID 2 for 1 time
+Processes:
+	0: Ready, starts @ time 0, 3 remaining, priority 1.
+	1: Ready, starts @ time 1, 3 remaining, priority 1.
+	2: Ready, starts @ time 2, 1 remaining, priority 1.
+capacity is 4
+Running is 1
+Running PID 1 for 1 time
+Processes:
+	0: Ready, starts @ time 0, 3 remaining, priority 1.
+	1: Ready, starts @ time 1, 2 remaining, priority 1.
+	2: Ready, starts @ time 2, 1 remaining, priority 1.
+	3: Ready, starts @ time 4, 1 remaining, priority 1.
+Running is 0
+Running PID 0 for 1 time
+Processes:
+	0: Ready, starts @ time 0, 2 remaining, priority 1.
+	1: Ready, starts @ time 1, 2 remaining, priority 1.
+	2: Ready, starts @ time 2, 1 remaining, priority 1.
+	3: Ready, starts @ time 4, 1 remaining, priority 1.
+capacity is 4
+Running is 3
+Running PID 3 for 1 time
+Terminating process 3...
+Processes:
+	0: Ready, starts @ time 0, 2 remaining, priority 1.
+	1: Ready, starts @ time 1, 2 remaining, priority 1.
+	2: Ready, starts @ time 2, 1 remaining, priority 1.
+	4: Ready, starts @ time 6, 5 remaining, priority 1.
+3 is done
+Running is 2
+Running PID 2 for 1 time
+Terminating process 2...
+Processes:
+	0: Ready, starts @ time 0, 2 remaining, priority 1.
+	1: Ready, starts @ time 1, 2 remaining, priority 1.
+	4: Ready, starts @ time 6, 5 remaining, priority 1.
+2 is done
+Running is 1
+Running PID 1 for 1 time
+Processes:
+	0: Ready, starts @ time 0, 2 remaining, priority 1.
+	1: Ready, starts @ time 1, 1 remaining, priority 1.
+	4: Ready, starts @ time 6, 5 remaining, priority 1.
+Running is 4
+Running PID 4 for 1 time
+Processes:
+	0: Ready, starts @ time 0, 2 remaining, priority 1.
+	1: Ready, starts @ time 1, 1 remaining, priority 1.
+	4: Ready, starts @ time 6, 4 remaining, priority 1.
+Running is 0
+Running PID 0 for 1 time
+Processes:
+	0: Ready, starts @ time 0, 1 remaining, priority 1.
+	1: Ready, starts @ time 1, 1 remaining, priority 1.
+	4: Ready, starts @ time 6, 4 remaining, priority 1.
+Running is 1
+Running PID 1 for 1 time
+Terminating process 1...
+Processes:
+	0: Ready, starts @ time 0, 1 remaining, priority 1.
+	4: Ready, starts @ time 6, 4 remaining, priority 1.
+1 is done
+Running is 4
+Running PID 4 for 1 time
+Processes:
+	0: Ready, starts @ time 0, 1 remaining, priority 1.
+	4: Ready, starts @ time 6, 3 remaining, priority 1.
+Running is 0
+Running PID 0 for 1 time
+Terminating process 0...
+Processes:
+	4: Ready, starts @ time 6, 3 remaining, priority 1.
+0 is done
+Running is 4
+Running PID 4 for 1 time
+Processes:
+	4: Ready, starts @ time 6, 2 remaining, priority 1.
+Running is 4
+Running PID 4 for 1 time
+Processes:
+	4: Ready, starts @ time 6, 1 remaining, priority 1.
+Running is 4
+Running PID 4 for 1 time
+Terminating process 4...
+Processes:
+
+Total Time: 17
+Average turnaround: 9
+Average wait: 5.6
+
+
+
+
+
+NOW RUNNING FIRST COME FIRST SERVE...
+Created Manager at 0.
+Processes:
+	0: Ready, starts @ time 0, 5 remaining, priority 1.
+Running with first-come, first-serve algorithm.
+
+Time: 0
+Running PID 0 for 1 time
+Processes:
+	0: Ready, starts @ time 0, 4 remaining, priority 1.
+
+Time: 1
+Running PID 0 for 1 time
+Processes:
+	0: Ready, starts @ time 0, 3 remaining, priority 1.
+	1: Ready, starts @ time 1, 4 remaining, priority 1.
+
+Time: 2
+Running PID 0 for 1 time
+Processes:
+	0: Ready, starts @ time 0, 2 remaining, priority 1.
+	1: Ready, starts @ time 1, 4 remaining, priority 1.
+	2: Ready, starts @ time 2, 2 remaining, priority 1.
+
+Time: 3
+Running PID 0 for 1 time
+Processes:
+	0: Ready, starts @ time 0, 1 remaining, priority 1.
+	1: Ready, starts @ time 1, 4 remaining, priority 1.
+	2: Ready, starts @ time 2, 2 remaining, priority 1.
+
+Time: 4
+Running PID 0 for 1 time
+Terminating process 0...
+Processes:
+	1: Ready, starts @ time 1, 4 remaining, priority 1.
+	2: Ready, starts @ time 2, 2 remaining, priority 1.
+	3: Ready, starts @ time 4, 1 remaining, priority 1.
+
+Time: 5
+Running PID 1 for 1 time
+Processes:
+	1: Ready, starts @ time 1, 3 remaining, priority 1.
+	2: Ready, starts @ time 2, 2 remaining, priority 1.
+	3: Ready, starts @ time 4, 1 remaining, priority 1.
+
+Time: 6
+Running PID 1 for 1 time
+Processes:
+	1: Ready, starts @ time 1, 2 remaining, priority 1.
+	2: Ready, starts @ time 2, 2 remaining, priority 1.
+	3: Ready, starts @ time 4, 1 remaining, priority 1.
+	4: Ready, starts @ time 6, 5 remaining, priority 1.
+
+Time: 7
+Running PID 1 for 1 time
+Processes:
+	1: Ready, starts @ time 1, 1 remaining, priority 1.
+	2: Ready, starts @ time 2, 2 remaining, priority 1.
+	3: Ready, starts @ time 4, 1 remaining, priority 1.
+	4: Ready, starts @ time 6, 5 remaining, priority 1.
+
+Time: 8
+Running PID 1 for 1 time
+Terminating process 1...
+Processes:
+	2: Ready, starts @ time 2, 2 remaining, priority 1.
+	3: Ready, starts @ time 4, 1 remaining, priority 1.
+	4: Ready, starts @ time 6, 5 remaining, priority 1.
+
+Time: 9
+Running PID 2 for 1 time
+Processes:
+	2: Ready, starts @ time 2, 1 remaining, priority 1.
+	3: Ready, starts @ time 4, 1 remaining, priority 1.
+	4: Ready, starts @ time 6, 5 remaining, priority 1.
+
+Time: 10
+Running PID 2 for 1 time
+Terminating process 2...
+Processes:
+	3: Ready, starts @ time 4, 1 remaining, priority 1.
+	4: Ready, starts @ time 6, 5 remaining, priority 1.
+
+Time: 11
+Running PID 3 for 1 time
+Terminating process 3...
+Processes:
+	4: Ready, starts @ time 6, 5 remaining, priority 1.
+
+Time: 12
+Running PID 4 for 1 time
+Processes:
+	4: Ready, starts @ time 6, 4 remaining, priority 1.
+
+Time: 13
+Running PID 4 for 1 time
+Processes:
+	4: Ready, starts @ time 6, 3 remaining, priority 1.
+
+Time: 14
+Running PID 4 for 1 time
+Processes:
+	4: Ready, starts @ time 6, 2 remaining, priority 1.
+
+Time: 15
+Running PID 4 for 1 time
+Processes:
+	4: Ready, starts @ time 6, 1 remaining, priority 1.
+
+Time: 16
+Running PID 4 for 1 time
+Terminating process 4...
+Processes:
+
+Total Time: 17
+Average turnaround: 8.2
+Average wait: 4.8

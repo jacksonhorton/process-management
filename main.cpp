@@ -16,26 +16,50 @@ using namespace std;
 
 int main() {
 
-  //  Scheduler scheduler(algorithm::priority);
-  //Scheduler scheduler(2);
-  Scheduler scheduler(2);
-  /*
-   * TEST
-   *
-   */
-  /*scheduler.add_process(0,4,3);
-  scheduler.add_process(1,3,2);
-  scheduler.add_process(2,1,2);
-  scheduler.add_process(3,2,4);
-  scheduler.add_process(4,5,5);*/
-  scheduler.add_process(0,5,1);
-  scheduler.add_process(1,4,1);
-  scheduler.add_process(2,2,1);
-  scheduler.add_process(4,1,1);
-  
-  
-  //scheduler.add_process(0, 4, 3);
-  scheduler.start();
+  cout << "NOW RUNNING PRIORITY SCHEDULING" << endl;
+  // Priority
+  Scheduler priority_scheduler(algorithm::priority);
+  priority_scheduler.add_process(0,5,1);
+  priority_scheduler.add_process(1,4,1);
+  priority_scheduler.add_process(2,2,1);
+  priority_scheduler.add_process(4,1,1);
+  priority_scheduler.add_process(6,5,1);
+  // run scheduler
+  priority_scheduler.start();
 
+  cout << "\n\n\n\n\nNOW RUNNING SHORTEST JOB FIRST" << endl;
+  // SJF
+  Scheduler sjf_scheduler(algorithm::sjf);
+  sjf_scheduler.add_process(0,5,1);
+  sjf_scheduler.add_process(1,4,1);
+  sjf_scheduler.add_process(2,2,1);
+  sjf_scheduler.add_process(4,1,1);
+  sjf_scheduler.add_process(6,5,1);
+  // run scheduler
+  sjf_scheduler.start();
+
+
+  cout << "\n\n\n\n\nNOW RUNNING ROUND ROBIN" << endl;
+  // Round robin
+  Scheduler rr_scheduler(algorithm::rr);
+  rr_scheduler.add_process(0,5,1);
+  rr_scheduler.add_process(1,4,1);
+  rr_scheduler.add_process(2,2,1);
+  rr_scheduler.add_process(4,1,1);
+  rr_scheduler.add_process(6,5,1);
+  // run scheduler
+  rr_scheduler.start();
+
+
+  cout << "\n\n\n\n\nNOW RUNNING FIRST COME FIRST SERVE..." << endl;
+  // Fcfs
+  Scheduler fcfs_scheduler(algorithm::fcfs);
+  fcfs_scheduler.add_process(0,5,1);
+  fcfs_scheduler.add_process(1,4,1);
+  fcfs_scheduler.add_process(2,2,1);
+  fcfs_scheduler.add_process(4,1,1);
+  fcfs_scheduler.add_process(6,5,1);
+  // run scheduler
+  fcfs_scheduler.start();
   return 0;
 }

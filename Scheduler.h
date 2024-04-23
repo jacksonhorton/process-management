@@ -28,6 +28,7 @@ class Scheduler {
   void sjf_loop();
   void priority_loop();
   void rr_loop();
+  bool isIn(std::vector<int> v, int a);
   
   std::vector<int> add_order;
   int cpu_time;
